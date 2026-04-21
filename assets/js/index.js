@@ -62,11 +62,11 @@ gsap.from('.hero_info', {
 })
 
 /* MAIN */
-gsap.from('#main h1', {
+gsap.from('#main h2', {
   y: 100,
   opacity: 1,
   scrollTrigger: {
-    trigger: '#main h1',
+    trigger: '#main h2',
     start: 'top bottom',
     scrub: 1,
   }
@@ -132,7 +132,7 @@ gsap.to('.main2_con p', {
 })
 
 gsap.to("[class^='sparkle']", {
-  y: 'random(-25, -50)',
+  y: -100,
   scrollTrigger: {
     scrub: 1
   }
@@ -157,10 +157,40 @@ gsap.to('.bottom_info h2', {
     trigger: ".bottom_info h2",
     scrub: 1,
     start: "top bottom",
-  }
+    end: "bottom center",
+   }
 })
 
+let bottomFooters = gsap.utils.toArray('.bottom_footer p');
+gsap.to(bottomFooters, {
+  color: '#fff',
+  stagger: 2,
+  repeat: -1,
+  duration: 3,
+  yoyo: true
+});
 
+
+/* FOOTER */
+gsap.to('#footer', {
+  clipPath: 'inset(0 1% 4% round 0 0 50px 50px)',
+  scrollTrigger: {
+    trigger: '#footer',
+    scrub: 1,
+    start: 'top bottom',
+    end: 'bottom center',
+  }
+});
+
+gsap.to('.footer_image', {
+  backgroundSize: '130%',
+  scrollTrigger: {
+    trigger: '#footer',
+    scrub: 5,
+    start: 'top bottom',
+    end: 'bottom center',
+  }
+})
 
 /* LENIS SCROLL */
 const lenis = new Lenis({
