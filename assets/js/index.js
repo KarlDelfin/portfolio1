@@ -42,7 +42,7 @@ if (isTouchDevice()) {
 }
 
 function init() {
-  coolVideo.src = "../assets/video/glass.mp4";
+  coolVideo.src = "./assets/video/glass.mp4";
   coolVideo.onloadedmetadata = function (e) {
     coolVideo.pause();
     tl.to(coolVideo, { currentTime: coolVideo.duration });
