@@ -81,22 +81,21 @@ gsap.from('.main1_con img', {
   }
 })
 
-
-gsap.to('.main1_con p', {
-  x: 1750,
-  scrollTrigger: {
-    trigger: '.main1_con p',
-    start: 'top bottom',
-    scrub: 1,
-  }
-})
-
 gsap.from('.main2_con img', {
   x: 1750,
   clipPath: 'inset(0% 0% 0% 50% round 30px)',
   scrollTrigger: {
     trigger: '.main2_con',
     start: 'top center',
+    scrub: 1,
+  }
+})
+
+gsap.to('.main1_info', {
+  x: 1750,
+  scrollTrigger: {
+    trigger: '.main1_info',
+    start: 'top bottom',
     scrub: 1,
   }
 })
@@ -111,6 +110,16 @@ gsap.from(split1.chars, {
   }
 });
 
+gsap.to('.main2_info', {
+  x: -1750,
+  y: -100,
+  scrollTrigger: {
+    trigger: '.main2_info',
+    start: 'top bottom',
+    scrub: 1,
+  }
+})
+
 let split2 = SplitText.create(".main2_con p", { type: "chars" });
 gsap.from(split2.chars, {
   y: 20,
@@ -121,15 +130,6 @@ gsap.from(split2.chars, {
   }
 });
 
-gsap.to('.main2_con p', {
-  x: -1750,
-  y: -100,
-  scrollTrigger: {
-    trigger: '.main2_con p',
-    start: 'top bottom',
-    scrub: 1,
-  }
-})
 
 gsap.to("[class^='sparkle']", {
   y: -100,
@@ -173,7 +173,7 @@ gsap.to(bottomFooters, {
 
 /* FOOTER */
 gsap.to('#footer', {
-  clipPath: 'inset(0 1% 4% round 0 0 50px 50px)',
+  clipPath: 'inset(4% 1% 4% round 50px)',
   scrollTrigger: {
     trigger: '#footer',
     scrub: 1,
@@ -182,17 +182,18 @@ gsap.to('#footer', {
   }
 });
 
-gsap.to('.footer_image', {
-  backgroundSize: '130%',
+gsap.from('.footer_image', {
+  backgroundPosition: 'center bottom -100%',
+  backgroundAttachment: 'fixed',
   scrollTrigger: {
     trigger: '#footer',
-    scrub: 5,
+    scrub: 1,
     start: 'top bottom',
-    end: 'bottom center',
+    end: 'bottom 40%',
   }
 })
 
 /* LENIS SCROLL */
-const lenis = new Lenis({
-  autoRaf: true,
-});
+const lenis = new Lenis()
+gsap.ticker.add((time)=>{ lenis.raf(time * 600) })
+gsap.ticker.lagSmoothing(0)
