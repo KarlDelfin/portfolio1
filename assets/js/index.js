@@ -71,31 +71,40 @@ gsap.from('#main h2', {
     scrub: 1,
   }
 })
+
+
 gsap.from('.main1_con img', {
-  x: -1750,
+  x: -1000,
   clipPath: 'inset(0% 50% 0% 0% round 30px)',
   scrollTrigger: {
     trigger: '.main1_con',
     start: 'top center',
     scrub: 1,
+    pin: true,
+    start: "center center",
+    end: "+=300",
   }
 })
 
 gsap.from('.main2_con img', {
-  x: 1750,
+  x: 1000,
   clipPath: 'inset(0% 0% 0% 50% round 30px)',
   scrollTrigger: {
     trigger: '.main2_con',
     start: 'top center',
     scrub: 1,
+    pin: true,
+    start: "center center",
+    end: "+=300",
   }
 })
 
 gsap.to('.main1_info', {
-  x: 1750,
+  filter: 'blur(0px)',
+  x: 2000,
   scrollTrigger: {
     trigger: '.main1_info',
-    start: 'top bottom',
+    start: 'top center',
     scrub: 1,
   }
 })
@@ -111,8 +120,7 @@ gsap.from(split1.chars, {
 });
 
 gsap.to('.main2_info', {
-  x: -1750,
-  y: -100,
+  x: -2000,
   scrollTrigger: {
     trigger: '.main2_info',
     start: 'top bottom',
@@ -192,6 +200,22 @@ gsap.from('.footer_image', {
     end: 'bottom 40%',
   }
 })
+
+// create
+let mm = gsap.matchMedia();
+
+mm.add("(max-width: 1023px)", () => {
+  
+});
+
+mm.add("(max-width: 767px)", () => {
+
+});
+
+mm.add("(max-width: 639px)", () => {
+  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img', { clearProps: 'all' });
+  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info') && st.kill());
+});
 
 /* LENIS SCROLL */
 const lenis = new Lenis()
