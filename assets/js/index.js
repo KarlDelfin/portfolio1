@@ -104,8 +104,10 @@ gsap.to('.main1_info', {
   x: 2000,
   scrollTrigger: {
     trigger: '.main1_info',
-    start: 'top center',
+    start: 'top 20%',
+    end: 'bottom 30%',
     scrub: 1,
+    markers: true
   }
 })
 
@@ -123,7 +125,8 @@ gsap.to('.main2_info', {
   x: -2000,
   scrollTrigger: {
     trigger: '.main2_info',
-    start: 'top bottom',
+    start: 'top 20%',
+    end: 'bottom 30%',
     scrub: 1,
   }
 })

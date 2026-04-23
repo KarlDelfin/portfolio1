@@ -65,7 +65,7 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .main1_con {min-height: 100vh; display: flex; align-items: center; gap: 50px;}
     .main2_con {min-height: 100vh; display: flex; flex-direction: row-reverse; align-items: center; gap: 50px;}
     [class^="sparkle"] {max-width: 30px; position: absolute; }
-    .sparkle1 {left: 10%; top: 15%;}
+    .sparkle1 {left: 10%; top: 13%;}
     .sparkle2 {left: 45%; top: 58%;}
     .sparkle3 {left: 20%; bottom: 0;}
 
