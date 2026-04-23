@@ -41,6 +41,9 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
 
 #nav{background: var(--priColor); border-bottom: 2px solid #eee;}
     .nav_con {display: flex; justify-content: space-evenly; align-items: center; min-height: 100px; width: 100%;}
+    .nav_con li a {display: flex; align-items: center;}
+    .nav_con li a i {opacity: 0; transition: 0.5s ease; transform: translateX(-10px); font-size: 12px;}
+    .nav_con li a:hover i {opacity: 1; transform: translateX(-2px)}
 
 #header{background: var(--priColor);}
     .header_info {text-align: center; padding: 25px 0}
