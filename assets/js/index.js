@@ -107,7 +107,6 @@ gsap.to('.main1_info', {
     start: 'top 20%',
     end: 'bottom 30%',
     scrub: 1,
-    markers: true
   }
 })
 
@@ -200,7 +199,6 @@ gsap.from('.footer_image', {
     trigger: '#footer',
     scrub: 1,
     start: 'top bottom',
-    end: 'bottom 40%',
   }
 })
 

@@ -88,12 +88,18 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .footer_nav h3 {margin: 0 0 25px 0; font-size: 12px; font-weight: bold; color: #0d1212b3;}
     .footer_nav ul{display: flex; flex-direction: column; gap: 25px}
     .footer_nav ul li {font-size: clamp(18px, 5.2vw, 20px);}
+    .footer_nav ul li a {display: flex; gap: 5px; transition: 0.5s ease; max-width: fit-content;}
+    .footer_nav ul li a:hover i {border: none; color: var(--priColor); background: var(--thiColor); overflow: hidden; transition: 0.5s ease;}
+    .footer_nav ul li a i:before {transition: 0.5s ease;}
+    .footer_nav ul li a:hover i:before {transform: rotate(180deg);}
+    .footer_nav ul li a i { font-size: 12px; display: flex; justify-content: center; align-items: center; width: 25px; aspect-ratio: 1/1; border-radius: 10px; border: 2px solid #0d1212b3;}
+
 
     .footer_info h3 {margin: 0 0 25px 0; font-size: 12px; font-weight: bold; color: #0d1212b3;}
     .footer_info ul{display: flex; flex-direction: column; gap: 25px}
     .footer_info ul li {font-size: clamp(18px, 5.2vw, 20px);}
 
-    .footer_con {min-height: 450px;display: flex; justify-content: space-between;align-items: center;align-items: start; padding: 100px 0;}
+    .footer_con {min-height: 450px;display: flex; justify-content: space-between;align-items: center;align-items: start; padding: 100px 25px;}
 
     .footer_form {max-width: 500px; width: 100%;}
     .footer_form h3 {margin: 0 0 25px 0; font-size: 12px; font-weight: bold; color: #0d1212b3;}
