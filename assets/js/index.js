@@ -73,7 +73,6 @@ gsap.from('#main h2', {
   }
 })
 
-
 gsap.from('.main1_con img', {
   x: -1000,
   clipPath: 'inset(0% 50% 0% 0% round 30px)',
@@ -91,6 +90,18 @@ gsap.from('.main2_con img', {
   clipPath: 'inset(0% 0% 0% 50% round 30px)',
   scrollTrigger: {
     trigger: '.main2_con',
+    start: 'top center',
+    scrub: 1,
+    pin: true,
+    end: "+=300",
+  }
+})
+
+gsap.from('.main3_con img', {
+  x: -1000,
+  clipPath: 'inset(0% 50% 0% 0% round 30px)',
+  scrollTrigger: {
+    trigger: '.main3_con',
     start: 'top center',
     scrub: 1,
     pin: true,
@@ -136,6 +147,26 @@ gsap.from(split2.chars, {
   stagger: 0.05,
   scrollTrigger: {
     trigger: '.main2_con p',
+  }
+});
+
+gsap.to('.main3_info', {
+  x: 2000,
+  scrollTrigger: {
+    trigger: '.main3_info',
+    start: 'top center',
+    end: 'bottom center',
+    scrub: 1,
+  }
+})
+
+let split3 = SplitText.create(".main3_con p", { type: "chars" });
+gsap.from(split3.chars, {
+  y: 20,
+  autoAlpha: 0,
+  stagger: 0.05,
+  scrollTrigger: {
+    trigger: '.main3_con p',
   }
 });
 
