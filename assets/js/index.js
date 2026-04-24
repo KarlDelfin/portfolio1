@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrambleTextPlugin);
 const coolVideo = document.querySelector(".hero_con video");
 
 let tl = gsap.timeline({
+  filter: 'blur(5px)',
   scrollTrigger: {
     trigger: ".hero_con",
     pin: true,
@@ -81,7 +82,6 @@ gsap.from('.main1_con img', {
     start: 'top center',
     scrub: 1,
     pin: true,
-    start: "center center",
     end: "+=300",
   }
 })
@@ -94,7 +94,6 @@ gsap.from('.main2_con img', {
     start: 'top center',
     scrub: 1,
     pin: true,
-    start: "center center",
     end: "+=300",
   }
 })
@@ -104,8 +103,8 @@ gsap.to('.main1_info', {
   x: 2000,
   scrollTrigger: {
     trigger: '.main1_info',
-    start: 'top 20%',
-    end: 'bottom 30%',
+    start: 'top center',
+    end: 'bottom center',
     scrub: 1,
   }
 })
@@ -124,8 +123,8 @@ gsap.to('.main2_info', {
   x: -2000,
   scrollTrigger: {
     trigger: '.main2_info',
-    start: 'top 20%',
-    end: 'bottom 30%',
+    start: 'top center',
+    end: 'bottom center',
     scrub: 1,
   }
 })
@@ -139,7 +138,6 @@ gsap.from(split2.chars, {
     trigger: '.main2_con p',
   }
 });
-
 
 gsap.to("[class^='sparkle']", {
   y: -100,

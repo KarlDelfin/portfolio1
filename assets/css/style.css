@@ -35,7 +35,6 @@ em, i { font-style: italic; }
     --h2FontSize: clamp(18px, 5.2vw ,56px);
 }
 
-
 body {font-family: var(--priFont); background: var(--secColor); color: var(--thiColor); }
 .wrapper {max-width: 1400px; margin: 0 auto; width: 100%;}
 
@@ -52,7 +51,7 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
 
 #hero{min-height: 100vh; width: 100%;} 
     .hero_con {width: 100%;}
-    .hero_con video {height: 100vh; width: 100vw; object-fit: cover; clip-path: inset(20px 20px round 30px);}
+    .hero_con video {height: 100vh; width: 100vw; object-fit: cover; clip-path: inset(20px 20px round 30px); filter: blur(5px);}
     .hero_con .hero_info { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--secColor); text-align: center;}
     .hero_con .hero_info h1 {font-size: var(--h1FontSize);}
 
@@ -64,18 +63,14 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .main1_info {position: absolute;max-width: 500px; left: -1500px; background-color: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); padding: 25px; border-radius: 10px;}
     .main2_info {position: absolute;max-width: 500px; right: -1500px; background-color: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); padding: 25px; border-radius: 10px;}
     #main p {font-size: 32px; text-align: center;}
-    /* #main figure img {clip-path: inset(10% 10% 10% 10% round 30px);} */
     .main1_con {min-height: 100vh; display: flex; align-items: center; gap: 50px;}
     .main2_con {min-height: 100vh; display: flex; flex-direction: row-reverse; align-items: center; gap: 50px;}
     [class^="sparkle"] {max-width: 30px; position: absolute; }
-    .sparkle1 {left: 10%; top: 13%;}
+    .sparkle1 {right: 10%; top: 10%;}
     .sparkle2 {left: 45%; top: 58%;}
-    .sparkle3 {left: 20%; bottom: 0;}
+    .sparkle3 {left: 20%; bottom: -3%;}
 
 #bottom{min-height: 100vh; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; background: var(--thiColor);}
-    .bottom_info {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--secColor); text-align: center; z-index: 1;}
-    .bottom_info h2 {font-weight: bold; font-family: var(--secFont); font-size: clamp(42px, 5.2vw ,90px);   background: linear-gradient( to right, rgb(255, 255, 255) 50%, rgb(37, 37, 37) 50% ); background-size: 200% 100%; background-position-x: 100% ; color: transparent; background-clip: text;}
-    
     .bottom_images {display: flex; justify-content: space-between; width: 100%; gap: 50px;}
     .bottom_images a { transition: 0.5s ease;}
     .bottom_images a:first-child:hover { transform: rotate(-4deg);}
@@ -83,6 +78,9 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .bottom_images a:last-child:hover { transform: rotate(4deg);}
     .bottom_images img {max-width: 250px; width: 100%; height: auto; filter: grayscale(100%); transition: 1s ease;}
     .bottom_images img:hover {filter: unset; transform:translateY(-10px);}
+    
+    .bottom_info {color: var(--secColor); text-align: center; z-index: 1;}
+    .bottom_info h2 {font-weight: bold; font-family: var(--secFont); font-size: clamp(42px, 5.2vw ,90px);   background: linear-gradient( to right, rgb(255, 255, 255) 50%, rgb(37, 37, 37) 50% ); background-size: 200% 100%; background-position-x: 100% ; color: transparent; background-clip: text;}
 
     .bottom_footer {display: flex; justify-content: center; align-items: center; flex-direction: column;}
     .bottom_footer p {font-size: clamp(18px, 5.2vw ,32px);}
@@ -97,7 +95,6 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .footer_nav ul li a:hover i:before {transform: rotate(180deg);}
     .footer_nav ul li a i { font-size: 12px; display: flex; justify-content: center; align-items: center; width: 25px; aspect-ratio: 1/1; border-radius: 10px; border: 2px solid #0d1212b3;}
 
-
     .footer_info h3 {margin: 0 0 25px 0; font-size: 12px; font-weight: bold; color: #0d1212b3;}
     .footer_info ul{display: flex; flex-direction: column; gap: 25px}
     .footer_info ul li {font-size: clamp(18px, 5.2vw, 20px);}
@@ -108,9 +105,8 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     .footer_form h3 {margin: 0 0 25px 0; font-size: 12px; font-weight: bold; color: #0d1212b3;}
     .footer_form form {display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;}
     .footer_form input { max-width: 611px; width: 100%; border: none; background: #fff; display: block; min-height: 55px; font-family: var(--bodyFont); font-size: 16px; border-radius: 100vw; padding: 0 20px 0 25px; }
-    .footer_form textarea {grid-column: 1/-1; max-width: 611px; width: 100%; border: none; background: #fff; display: block; min-height: 55px; font-family: var(--bodyFont); font-size: 16px; border-radius: 100vw; padding: 20px 20px 0 25px; }
+    .footer_form textarea {resize: none; grid-column: 1/-1; max-width: 611px; width: 100%; border: none; background: #fff; display: block; min-height: 55px; font-family: var(--bodyFont); font-size: 16px; border-radius: 100vw; padding: 20px 20px 0 25px; }
     .footer_form button {transition: 0.5s ease;grid-column: 1/-1;display: block; width: 100%; min-height: 55px; background: var(--thiColor); color: var(--priColor); font-size: 18px; text-align: center; position: relative; align-content: center; padding: 7px; border-radius: 100vw; border: none; justify-self: end}
     .footer_form button:hover {background: var(--priColor); color: var(--thiColor); border: 1px solid var(--thiColor);}
     
     .footer_image {background: url('../image/footer-fruit.jpg') no-repeat; min-height: 500px;}
-    /* .footer_image::before { content: ''; position: absolute; width: 100%; height: 100px; background: linear-gradient(180deg,rgb(255, 255, 255) 50%, rgba(125, 98, 57, 0) 100%); } */

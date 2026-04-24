@@ -25,9 +25,10 @@
 
 /* 640 */
 @media screen and (max-width: 639px) {
-   .main1_con { flex-direction: column; }
+   .main1_con { flex-direction: column; min-height: 0; margin-bottom: 50px;}
    .main1_info {position: static;}
-   .main2_con { flex-direction: column; }
+
+   .main2_con { flex-direction: column; min-height: 0; margin-bottom: 50px;}
    .main2_info {position: static;}
 
    .footer_con {padding: 100px 25px;}
