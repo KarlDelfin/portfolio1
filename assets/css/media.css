@@ -21,6 +21,7 @@
 @media screen and (max-width: 767px) {
     .main1_info {left: -1860px;}
     .main2_info {right: -1860px;}
+    .main3_info {left: -1860px;}
 }
 
 /* 640 */
@@ -30,6 +31,9 @@
 
    .main2_con { flex-direction: column; min-height: 0; margin-bottom: 50px;}
    .main2_info {position: static;}
+
+   .main3_con { flex-direction: column; min-height: 0; margin-bottom: 50px;}
+   .main3_info {position: static;}
 
    .footer_con {padding: 100px 25px;}
 }
