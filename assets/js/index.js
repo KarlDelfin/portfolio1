@@ -1,16 +1,39 @@
-/* Encoding is important!!!
-//--------------------------------
-// ffmpeg settings used:
-//--------------------------------
 
-ffmpeg -i part1b.mp4 -vf scale=1920:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
-
-// scale filtergraph optional
-// ffmpeg docs: http://ffmpeg.org/ffmpeg.html
-
-*/
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrambleTextPlugin);
+gsap.registerPlugin(SplitText);
+
+// let splitLines = new SplitText('.header_info h2 span', { type: "lines" });
+let splitWords = new SplitText('.header_info h2 span', { type: "words" });
+// let splitChars = new SplitText('.header_info h2 span', { type: "chars" });
+
+/* LINES *
+// gsap.from(splitLines.lines, {
+//   y: 100,
+//   opacity: 0,
+//   duration: 0.8,
+//   ease: "power4.out",
+//   stagger: 0.1
+// });
+
+/* WORDS */
+gsap.from(splitWords.words, {
+  y: 50,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power3.out",
+  stagger: 0.05
+});
+
+/* CHARACTERS */
+// gsap.from(splitChars.chars, {
+//   x: 20,
+//   y: 20,
+//   opacity: 0,
+//   duration: 0.4,
+//   ease: "power2.out",
+//   stagger: 0.03
+// });
 
 /* HERO */
 console.clear();
@@ -56,6 +79,19 @@ function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(frameImages[fruits.frame], 0, 0);
 }
+
+/* Encoding is important!!!
+//--------------------------------
+// ffmpeg settings used:
+//--------------------------------
+
+ffmpeg -i part1b.mp4 -vf scale=1920:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
+
+// scale filtergraph optional
+// ffmpeg docs: http://ffmpeg.org/ffmpeg.html
+
+*/
+
 // let coolVideo = document.querySelector(".hero_con video");
 
 // let tl = gsap.timeline({
@@ -106,6 +142,22 @@ gsap.from('.hero_info', {
 })
 
 /* MAIN */
+let mainHeading = new SplitText('#main h2', { type: "chars" });
+gsap.from(mainHeading.chars, {
+  x: 50,
+  y: 30,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power3.out",
+  stagger: 0.05,
+  scrollTrigger: {
+    trigger: '#main h2',
+    start: 'top center',
+    end: 'bottom center',
+    scrub: 1,
+  }
+})
+
 gsap.from('#main h2', {
   y: 100,
   opacity: 1,
