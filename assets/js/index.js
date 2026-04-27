@@ -298,10 +298,12 @@ gsap.to('.bottom_info h2', {
 let bottomFooters = gsap.utils.toArray('.bottom_footer p');
 gsap.to(bottomFooters, {
   color: '#fff',
-  stagger: 2,
-  repeat: -1,
+  stagger: 1,
   duration: 3,
-  yoyo: true
+  scrollTrigger: {
+    trigger: '.bottom_footer p',
+    scrub: 1
+  }
 });
 
 
@@ -338,8 +340,8 @@ mm.add("(max-width: 767px)", () => {
 });
 
 mm.add("(max-width: 639px)", () => {
-  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img, .main3_info, .main3_con img', { clearProps: 'all' });
-  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info, .main3_con, .main3_info') && st.kill());
+  gsap.set('.main1_info, .main1_con img, .main2_info, .main2_con img, .main3_info, .main3_con img', { clearProps: 'all' });
+  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('.main1_con, .main1_info, .main2_con, .main2_info, .main3_con, .main3_info') && st.kill());
 });
 
 /* LENIS SCROLL */
