@@ -1,3 +1,85 @@
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrambleTextPlugin);
+gsap.registerPlugin(SplitText);
+
+// let splitLines = new SplitText('.header_info h2 span', { type: "lines" });
+let splitWords = new SplitText('.header_info h2 span', { type: "words" });
+// let splitChars = new SplitText('.header_info h2 span', { type: "chars" });
+
+/* LINES *
+// gsap.from(splitLines.lines, {
+//   y: 100,
+//   opacity: 0,
+//   duration: 0.8,
+//   ease: "power4.out",
+//   stagger: 0.1
+// });
+
+/* WORDS */
+gsap.from(splitWords.words, {
+  y: 50,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power3.out",
+  stagger: 0.05
+});
+
+/* CHARACTERS */
+// gsap.from(splitChars.chars, {
+//   x: 20,
+//   y: 20,
+//   opacity: 0,
+//   duration: 0.4,
+//   ease: "power2.out",
+//   stagger: 0.03
+// });
+
+/* HERO */
+console.clear();
+
+let canvas = document.querySelector(".hero_con canvas");
+let context = canvas.getContext("2d");
+
+canvas.width = 1920;
+canvas.height = 1080;
+
+let frameCount = 157;
+let currentFrame = (index) =>
+  `./assets/image/frames/${( index + 1 ).toString().padStart(3, "0")}.png`;
+
+let frameImages = [];
+let fruits = {
+  frame: 0
+};
+
+for (let i = 0; i < frameCount; i++) {
+  let img = new Image();
+  img.src = currentFrame(i);
+  frameImages.push(img);
+}
+
+gsap.to(fruits, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero_con",
+    start: "top top",
+    end: "+=5000",
+    pin: true,
+    scrub: 0.5
+  },
+  onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+});
+
+frameImages[0].onload = render;
+
+function render() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(frameImages[fruits.frame], 0, 0);
+}
+
 /* Encoding is important!!!
 //--------------------------------
 // ffmpeg settings used:
@@ -9,58 +91,7 @@ ffmpeg -i part1b.mp4 -vf scale=1920:-1 -movflags faststart -vcodec libx264 -crf 
 // ffmpeg docs: http://ffmpeg.org/ffmpeg.html
 
 */
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(ScrambleTextPlugin);
 
-/* HERO */
-console.clear();
-
-let canvas = document.getElementById("hero-lightpass");
-let context = canvas.getContext("2d");
-
-canvas.width = 1158;
-canvas.height = 770;
-
-let frameCount = 30;
-let currentFrame = (index) =>
-  `./assets/image/frames/${(
-    index + 1
-  )
-    .toString()
-    .padStart(2, "0")}.png`;
-
-let frameImages = [];
-let airpods = {
-  frame: 0
-};
-
-for (let i = 0; i < frameCount; i++) {
-  let img = new Image();
-  img.src = currentFrame(i);
-  frameImages.push(img);
-}
-
-gsap.to(airpods, {
-  frame: frameCount - 1,
-  snap: "frame",
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".hero_con",
-    start: "top top",
-    end: "+=3500",
-    markers: true,
-    pin: true,
-    scrub: 0.5
-  },
-  onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
-});
-
-frameImages[0].onload = render;
-
-function render() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(frameImages[airpods.frame], 0, 0);
-}
 // let coolVideo = document.querySelector(".hero_con video");
 
 // let tl = gsap.timeline({
@@ -100,17 +131,33 @@ function render() {
 
 // document.addEventListener("DOMContentLoaded", init, false);
 
-// gsap.from('.hero_info', {
-//   opacity: 0,
-//   scrollTrigger: {
-//     trigger: '.hero_info',
-//     start: 'top top',
-//     end: 'bottom bottom',
-//     scrub: 5,
-//   }
-// })
+gsap.from('.hero_info', {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: '.hero_con canvas',
+    start: 'top top',
+    scrub: 5,
+    
+  }
+})
 
 /* MAIN */
+let mainHeading = new SplitText('#main h2', { type: "chars" });
+gsap.from(mainHeading.chars, {
+  x: 50,
+  y: 30,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power3.out",
+  stagger: 0.05,
+  scrollTrigger: {
+    trigger: '#main h2',
+    start: 'top center',
+    end: 'bottom center',
+    scrub: 1,
+  }
+})
+
 gsap.from('#main h2', {
   y: 100,
   opacity: 1,
@@ -241,9 +288,9 @@ gsap.to('.bottom_info h2', {
   backgroundPositionX: "0%",
   stagger: 1,
   scrollTrigger: {
-    trigger: ".bottom_info h2",
+    trigger: "#bottom",
     scrub: 1,
-    start: "top bottom",
+    start: "top 20%",
     end: "bottom center",
    }
 })
@@ -291,11 +338,11 @@ mm.add("(max-width: 767px)", () => {
 });
 
 mm.add("(max-width: 639px)", () => {
-  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img', { clearProps: 'all' });
-  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info') && st.kill());
+  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img, .main3_info, .main3_con img', { clearProps: 'all' });
+  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info, .main3_con, .main3_info') && st.kill());
 });
 
 /* LENIS SCROLL */
 let lenis = new Lenis()
-gsap.ticker.add((time)=>{ lenis.raf(time * 600) })
+gsap.ticker.add((time)=>{ lenis.raf(time * 400) })
 gsap.ticker.lagSmoothing(0)
