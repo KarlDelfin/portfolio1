@@ -240,7 +240,6 @@ gsap.to('.bottom_info h2', {
     scrub: 1,
     start: "top 20%",
     end: "bottom center",
-    markers: true,
    }
 })
 
