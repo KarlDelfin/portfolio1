@@ -13,54 +13,102 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrambleTextPlugin);
 
 /* HERO */
-const coolVideo = document.querySelector(".hero_con video");
+console.clear();
 
-let tl = gsap.timeline({
-  filter: 'blur(5px)',
+let canvas = document.getElementById("hero-lightpass");
+let context = canvas.getContext("2d");
+
+canvas.width = 1158;
+canvas.height = 770;
+
+let frameCount = 30;
+let currentFrame = (index) =>
+  `./assets/image/frames/${(
+    index + 1
+  )
+    .toString()
+    .padStart(2, "0")}.png`;
+
+let frameImages = [];
+let airpods = {
+  frame: 0
+};
+
+for (let i = 0; i < frameCount; i++) {
+  let img = new Image();
+  img.src = currentFrame(i);
+  frameImages.push(img);
+}
+
+gsap.to(airpods, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: "none",
   scrollTrigger: {
     trigger: ".hero_con",
+    start: "top top",
+    end: "+=3500",
+    markers: true,
     pin: true,
-    scrub: 2,
-    start: "center center",
-    end: "+=1000",
-    pinSpacing: false
-  }
+    scrub: 0.5
+  },
+  onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
 });
+
+frameImages[0].onload = render;
+
+function render() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(frameImages[airpods.frame], 0, 0);
+}
+// let coolVideo = document.querySelector(".hero_con video");
+
+// let tl = gsap.timeline({
+//   filter: 'blur(5px)',
+//   scrollTrigger: {
+//     trigger: ".hero_con",
+//     pin: true,
+//     scrub: 2,
+//     start: "center center",
+//     end: "+=1000",
+//     pinSpacing: false
+//   }
+// });
 
 // wait until video metadata is loaded, so we can grab the proper duration before adding the onscroll animation. Might need to add a loader for loonng videos
 
 // Dealing with devices
-function isTouchDevice() {
-  return (
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    navigator.msMaxTouchPoints > 0
-  );
-}
-if (isTouchDevice()) {
-  coolVideo.play();
-  coolVideo.pause();
-}
+// function isTouchDevice() {
+//   return (
+//     "ontouchstart" in window ||
+//     navigator.maxTouchPoints > 0 ||
+//     navigator.msMaxTouchPoints > 0
+//   );
+// }
+// if (isTouchDevice()) {
+//   coolVideo.play();
+//   coolVideo.pause();
+// }
 
-function init() {
-  coolVideo.src = "./assets/video/glass.mp4";
-  coolVideo.onloadedmetadata = function (e) {
-    coolVideo.pause();
-    tl.to(coolVideo, { currentTime: coolVideo.duration });
-  };
-}
+// function init() {
+//   coolVideo.src = "./assets/video/glass.mp4";
+//   coolVideo.onloadedmetadata = function (e) {
+//     coolVideo.pause();
+//     tl.to(coolVideo, { currentTime: coolVideo.duration });
+//   };
+// }
 
-document.addEventListener("DOMContentLoaded", init, false);
+// document.addEventListener("DOMContentLoaded", init, false);
 
-gsap.from('.hero_info', {
-  opacity: 0,
-  scrollTrigger: {
-    trigger: '.hero_info',
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: 5,
-  }
-})
+// gsap.from('.hero_info', {
+//   opacity: 0,
+//   scrollTrigger: {
+//     trigger: '.hero_info',
+//     start: 'top top',
+//     end: 'bottom bottom',
+//     scrub: 5,
+//   }
+// })
 
 /* MAIN */
 gsap.from('#main h2', {
@@ -248,6 +296,6 @@ mm.add("(max-width: 639px)", () => {
 });
 
 /* LENIS SCROLL */
-const lenis = new Lenis()
+let lenis = new Lenis()
 gsap.ticker.add((time)=>{ lenis.raf(time * 600) })
 gsap.ticker.lagSmoothing(0)

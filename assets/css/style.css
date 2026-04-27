@@ -65,7 +65,7 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
     #main p {font-size: 32px; text-align: center;}
     .main1_con {min-height: 100vh; display: flex; align-items: center; gap: 50px;}
     .main2_con {min-height: 100vh; display: flex; flex-direction: row-reverse; align-items: center; gap: 50px;}
-    .main3_con {min-height: 100vh; display: flex; align-items: center; gap: 50px;}
+    .main3_con {min-height: 100vhe; display: flex; align-items: center; gap: 50px;}
     [class^="sparkle"] {max-width: 30px; position: absolute; }
     .sparkle1 {right: 10%; top: 10%;}
     .sparkle2 {left: 45%; top: 58%;}
