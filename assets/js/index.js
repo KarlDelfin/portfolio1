@@ -15,22 +15,18 @@ gsap.registerPlugin(ScrambleTextPlugin);
 /* HERO */
 console.clear();
 
-let canvas = document.getElementById("hero-lightpass");
+let canvas = document.querySelector(".hero_con canvas");
 let context = canvas.getContext("2d");
 
-canvas.width = 1158;
-canvas.height = 770;
+canvas.width = 1920;
+canvas.height = 1080;
 
-let frameCount = 30;
+let frameCount = 157;
 let currentFrame = (index) =>
-  `./assets/image/frames/${(
-    index + 1
-  )
-    .toString()
-    .padStart(2, "0")}.png`;
+  `./assets/image/frames/${( index + 1 ).toString().padStart(3, "0")}.png`;
 
 let frameImages = [];
-let airpods = {
+let fruits = {
   frame: 0
 };
 
@@ -40,15 +36,14 @@ for (let i = 0; i < frameCount; i++) {
   frameImages.push(img);
 }
 
-gsap.to(airpods, {
+gsap.to(fruits, {
   frame: frameCount - 1,
   snap: "frame",
   ease: "none",
   scrollTrigger: {
     trigger: ".hero_con",
     start: "top top",
-    end: "+=3500",
-    markers: true,
+    end: "+=5000",
     pin: true,
     scrub: 0.5
   },
@@ -59,7 +54,7 @@ frameImages[0].onload = render;
 
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(frameImages[airpods.frame], 0, 0);
+  context.drawImage(frameImages[fruits.frame], 0, 0);
 }
 // let coolVideo = document.querySelector(".hero_con video");
 
@@ -100,15 +95,15 @@ function render() {
 
 // document.addEventListener("DOMContentLoaded", init, false);
 
-// gsap.from('.hero_info', {
-//   opacity: 0,
-//   scrollTrigger: {
-//     trigger: '.hero_info',
-//     start: 'top top',
-//     end: 'bottom bottom',
-//     scrub: 5,
-//   }
-// })
+gsap.from('.hero_info', {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: '.hero_con canvas',
+    start: 'top top',
+    scrub: 5,
+    
+  }
+})
 
 /* MAIN */
 gsap.from('#main h2', {
@@ -241,10 +236,11 @@ gsap.to('.bottom_info h2', {
   backgroundPositionX: "0%",
   stagger: 1,
   scrollTrigger: {
-    trigger: ".bottom_info h2",
+    trigger: "#bottom",
     scrub: 1,
-    start: "top bottom",
+    start: "top 20%",
     end: "bottom center",
+    markers: true,
    }
 })
 
@@ -291,11 +287,11 @@ mm.add("(max-width: 767px)", () => {
 });
 
 mm.add("(max-width: 639px)", () => {
-  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img', { clearProps: 'all' });
-  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info') && st.kill());
+  gsap.set('#main h2, .main1_info, .main1_con img, .main2_info, .main2_con img, .main3_info, .main3_con img', { clearProps: 'all' });
+  ScrollTrigger.getAll().forEach(st => st.trigger?.matches('#main h2, .main1_con, .main1_info, .main2_con, .main2_info, .main3_con, .main3_info') && st.kill());
 });
 
 /* LENIS SCROLL */
 let lenis = new Lenis()
-gsap.ticker.add((time)=>{ lenis.raf(time * 600) })
+gsap.ticker.add((time)=>{ lenis.raf(time * 400) })
 gsap.ticker.lagSmoothing(0)
