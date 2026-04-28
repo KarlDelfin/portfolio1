@@ -22,6 +22,7 @@
     .main1_info {left: -1860px;}
     .main2_info {right: -1860px;}
     .main3_info {left: -1860px;}
+    #main .circles div {height: 100px; width: 100px; margin-top: -50px;}
 }
 
 /* 640 */

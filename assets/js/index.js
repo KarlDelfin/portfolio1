@@ -149,12 +149,30 @@ gsap.from(mainHeading.chars, {
   opacity: 0,
   duration: 0.6,
   ease: "power3.out",
-  stagger: 0.05,
+  stagger: {
+    each: 0.03,
+    from: "start" // "start", "end", "edges", "center", "random" or index number
+  },
   scrollTrigger: {
     trigger: '#main h2',
     start: 'top center',
     end: 'bottom center',
     scrub: 1,
+  }
+})
+
+gsap.from('#main .circles div', {
+  scale: 0.01,
+  ease: "elastic",
+  stagger: {
+    each: 0.5,
+    from: "edges" // "start", "end", "edges", "center", "random" or index number
+  },
+  scrollTrigger: {
+    trigger: '#main .circles div',
+    scrub: 2,
+    start: 'top 80%',
+    end: 'bottom center',
   }
 })
 
