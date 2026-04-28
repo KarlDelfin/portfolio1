@@ -46,7 +46,7 @@ canvas.height = 1080;
 
 let frameCount = 157;
 let currentFrame = (index) =>
-  `./assets/image/frames/${( index + 1 ).toString().padStart(3, "0")}.png`;
+  `./assets/image/frames/${( index + 1 ).toString().padStart(3, "0")}.webp`;
 
 let frameImages = [];
 let fruits = {
