@@ -161,21 +161,6 @@ gsap.from(mainHeading.chars, {
   }
 })
 
-gsap.from('#main .circles div', {
-  scale: 0.01,
-  ease: "elastic",
-  stagger: {
-    each: 0.5,
-    from: "edges" // "start", "end", "edges", "center", "random" or index number
-  },
-  scrollTrigger: {
-    trigger: '#main .circles div',
-    scrub: 2,
-    start: 'top 80%',
-    end: 'bottom center',
-  }
-})
-
 gsap.from('#main h2', {
   y: 100,
   opacity: 1,
