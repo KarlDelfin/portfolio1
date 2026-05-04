@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Portfolio 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/media.min.css">
+  </head>
+    
+  <body>
+    <!-- NAV -->
+    <nav id="nav">
+      <div class="wrapper">
+          <ul class="nav_con">
+            <li><a href="javascript:void(0)"><i class="fa-solid fa-angle-right"></i><span>Home</span></a></li>
+            <li><a href="javascript:void(0)"><i class="fa-solid fa-angle-right"></i><span>Our Fruits</span></a></li>
+            <li><a href="javascript:void(0)"><i class="fa-solid fa-angle-right"></i><span>Gallery</span></a></li>
+            <li><a href="javascript:void(0)"><i class="fa-solid fa-angle-right"></i><span>Order Now</span></a></li>
+          </ul>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header id="header">
+      <div class="wrapper">
+        <div class="header_info">
+          <h2>
+            <span>Karl John T. Delfin</span>
+            <span>Portfolio1</span>
+          </h2>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div id="hero">
+      <div class="hero_con">
+        <!-- <video></video> -->
+        <canvas></canvas>
+        <div class="hero_info">
+          <h1>Discover colorful fruits and <span>naturally delicious experiences.</span></h1>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- MAIN -->
+    <div id="main">
+      <div class="wrapper">
+        <div class="main_images">
+          <a href="javascript:void(0)"><img src="./assets/image/main-painting1.webp" data-speed="0.2" alt="fruits"></a>
+          <a href="javascript:void(0)"><img src="./assets/image/main-painting2.webp" data-speed="0.6" alt="fruits"></a>
+          <a href="javascript:void(0)"><img src="./assets/image/main-painting3.webp" data-speed="0.4" alt="fruits"></a>
+        </div>
+        <div class="main_info">
+          <h2>
+            <span>Fresh</span>
+            <span>Fruit</span>
+            <span>Collection</span>
+          </h2>
+        </div>
+        <div class="main_footer">
+          <p>Picked fresh from local farms</p>
+          <p>Rich in natural sweetness</p>
+          <p>Made for healthy living</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <main id="bottom">
+      <h2>Experience the freshness, color, and flavor of nature’s finest fruits.</h2>
+        <div class="bottom_con">
+          <figure><img src="assets/image/bottom-fruit1.webp" alt="fruits"></figure>
+          <div class="bottom_info">
+            <p>Enjoy handpicked tropical fruits bursting with vibrant flavors, natural sweetness, and refreshing textures perfect for every season.</p>
+            <a href="javascript:void(0)">Order Now</a>
+          </div>
+        </div>
+        <div class="bottom_con">
+          <figure><img src="assets/image/bottom-fruit2.webp" alt="fruits"></figure>
+            <div class="bottom_info">
+            <p>From juicy berries to crisp citrus favorites, discover healthy treats inspired by nature’s colorful harvest.</p>
+            <a href="javascript:void(0)">Order Now</a>
+          </div>
+        </div>
+        <div class="bottom_con">
+          <figure><img src="assets/image/bottom-fruit3.webp" alt="fruits"></figure>
+            <div class="bottom_info">
+            <p>Freshly selected fruits carefully prepared to bring flavor, nutrition, and joy to every bite.</p>
+            <a href="javascript:void(0)">Order Now</a>
+          </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="wrapper">
+        <div class="footer_con">
+          <div class="footer_nav">
+            <h3>Sitemap</h3>
+            <ul>
+              <li><a href="javascript:void(0)"><span>Home</span> <i class="fa-solid fa-angle-right"></i></a></li>
+              <li><a href="javascript:void(0)"><span>Our Fruits</span> <i class="fa-solid fa-angle-right"></i></a></li>
+              <li><a href="javascript:void(0)"><span>Gallery</span> <i class="fa-solid fa-angle-right"></i></a></li>
+              <li><a href="javascript:void(0)"><span>Order Now</span> <i class="fa-solid fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+          <div class="footer_info">
+              <h3>Contact Details</h3>
+              <ul>
+                <li>Email: sample@gmail.com</li>
+                <li>Phone: +1 (123) 456-7890</li>
+              </ul>
+          </div>
+          <div class="footer_logo">
+            <p>Karl John T. Delfin<span>Portfolio 1</span></p>
+          </div>
+          <div class="copyright">
+              <p>Contact Details</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer_image"> </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrambleTextPlugin.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js'></script>
+    <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script> 
+    <script  src="assets/js/index.min.js"></script>
+
+    <script>
+      let year = new Date().getFullYear()
+      let copyright = document.querySelector('.copyright p')
+      copyright.innerHTML = `Copyright © Karl John T. Delfin, ${year}`
+    </script>
+  </body>
+</html>
