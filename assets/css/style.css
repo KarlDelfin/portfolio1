@@ -105,4 +105,4 @@ body {font-family: var(--priFont); background: var(--secColor); color: var(--thi
 
     .footer_con .copyright {width: 100%; text-align: center;}
 
-    .footer_image {background: url('../image/footer-fruit.jpg') no-repeat; min-height: 500px;}
+    .footer_image {background: url('../image/footer-fruit.webp') no-repeat; min-height: 500px;}
