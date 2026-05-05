@@ -24,6 +24,8 @@
 
 /* 600 */
 @media screen and (max-width: 600px) {
+    .hero_con canvas { clip-path: inset(10px 10px round 10px); }
+
    .bottom_con { flex-direction: column !important; min-height: 0; margin-bottom: 50px;}
    .bottom_con .bottom_info {position: static;}
    

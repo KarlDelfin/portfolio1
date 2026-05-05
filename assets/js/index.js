@@ -273,6 +273,5 @@ mm.add("(max-width: 800px)", () => {
 });
 
 mm.add("(max-width: 600px)", () => {
-  gsap.set('.bottom_con img, .bottom_con .bottom_info', { clearProps: 'all' });
-  ScrollTrigger.getAll().forEach(st => st.trigger.matches('.bottom_con img, .bottom_con .bottom_info') && st.kill());
+  
 });
